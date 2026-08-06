@@ -7,11 +7,14 @@ export default function MainPage() {
   return (
     <div>
       <AppBar />
-      <div className="flex flex-col gap-5 mx-5 mt-34 mb-10">
+      <div className="flex flex-col gap-5 mx-5 mt-30 mb-10">
         <RecommendProduct />
         <div className="pt-5 flex gap-5">  
           <ProductFilter />
-          <ProductCard />
+          <div>
+            <h1 className="w-full text-2xl font-bold pb-3">All Products</h1>
+            <ProductCard />
+          </div>
         </div>
       </div>
     </div>

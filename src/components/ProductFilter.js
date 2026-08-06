@@ -13,12 +13,12 @@ export default function ProductFilter() {
         );
     };
 
-    const categories = ["Laptop", "Controller", "PC", "Headphone", "Smartphone"];
+    const categories = ["Laptop", "Controller", "PC", "Headphone", "Smartphone", "Tablet", "Camera", "Smartwatch", "Speaker", "Monitor"];
 
     return (
-        <div className="h-fit w-sm p-5 bg-white rounded-lg shadow-md border border-gray-400 ">
+        <div className="h-fit max-w-md p-5 bg-white rounded-lg shadow-md border border-gray-400 ">
             {/* Filter */}
-            <div className="font-bold text-2xl pb-3">Filters</div>
+            <div className="font-bold text-xl pb-3">Filters</div>
             {/* Price Range */}
             <div className="pt-3 border-t border-gray-400">
                 <div className="font-semibold text-lg pb-2">Price Range</div>
@@ -39,8 +39,8 @@ export default function ProductFilter() {
                 </select>
             </div>
             {/* Category */}
-            <div className="font-bold text-2xl pt-10 pb-3">Category</div>
-            <div className="flex flex-col border-t border-gray-400">
+            <div className="font-bold text-xl pt-10 pb-3">Category</div>
+            <div className="grid grid-cols-2 border-t border-gray-400">
                 {categories.map((category) => (
                     <div key={category} className="flex items-center pt-3">
                         <input
@@ -50,7 +50,7 @@ export default function ProductFilter() {
                             onChange={() => handleCategoryChange(category)}
                             className="h-5 w-5 border-gray-300 rounded text-blue-600 accent-blue-600 focus:ring-blue-500"
                         />
-                        <label htmlFor={category} className="text-lg font-medium text-gray-700 select-none cursor-pointer pl-2">
+                        <label htmlFor={category} className="font-medium text-gray-700 select-none cursor-pointer pl-2">
                             {category}
                         </label>
                     </div>
