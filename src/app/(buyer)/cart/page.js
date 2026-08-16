@@ -1,8 +1,6 @@
 "use client"
 
 import { useState } from "react";
-
-import AppBar from "@/components/appbar"
 import ProductCard from "@/components/ProductCard";
 
 export default function CartPage() {
@@ -10,12 +8,11 @@ export default function CartPage() {
 
     return (
         <div>
-            <AppBar />
             <div className="mt-30 mx-10 mb-10 bg-white border border-gray-200 rounded-lg p-6">
                 <h1 className="text-2xl font-bold border-b-2 pb-3 border-gray-300">Shopping Cart</h1>
                 <div className="flex justify-between mt-3 gap-7 pb-10">
                     {/* Table */}
-                    <table className="w-full table-auto text-center">    
+                    <table className="w-full table-auto text-center">
                         <thead>
                             <tr className="bg-gray-50">
                                 <th className="w-[7%] p-3">
@@ -164,33 +161,54 @@ export default function CartPage() {
                             </tr>
                         </tbody>
                     </table>
-                    {/* Total */}
-                    <div className="w-full max-w-72 h-fit border border-gray-400 rounded-md px-5 py-3">
-                        <div className="font-semibold text-lg border-b pb-1 border-gray-300">Order Summary</div>
-                        <div className="-space-y-4 border-b pb-3 border-gray-300">
-                            {/* Subtotal */}
-                            <div className="mt-4 text-md flex justify-between">
-                                <p>Subtotal (3 items)</p>
-                                <p className="font-semibold">$3,000,00</p>
-                            </div>
-                            {/* Tax */}
-                            <div className="mt-4 text-md flex justify-between">
-                                <p>Estimated Tax</p>
-                                <p className="font-semibold">$210.00</p>
+                    <div className="w-full max-w-80 flex flex-col">
+                        {/* Coupon */}
+                        <div className="border border-gray-400 rounded-md px-5 py-3 mb-5">
+                            <div className="font-semibold text-lg border-b border-gray-300 pb-2">Coupon</div>
+                            <p className="font-medium my-2 text-md">Have a coupon? Insert here</p>
+                            <div className="relative flex items-center w-full border border-gray-400 rounded-md">
+                                <input type="text" placeholder="Input your coupon here" className="w-full text-sm pl-3 py-1 rounded-l-md uppercase placeholder:normal-case focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600" />
+                                <button type="button" className="px-4 py-1 bg-blue-500 rounded-r-sm text-white hover:bg-blue-700 cursor-pointer">Check</button>
                             </div>
                         </div>
                         {/* Total */}
-                        <div className="mt-4 text-lg flex justify-between pb-7">
-                            <p className="font-medium">Total</p>
-                            <p className="font-bold text-2xl">$3,210.00</p>
+                        <div className="border border-gray-400 rounded-md px-5 py-3">
+                            <div className="font-semibold text-lg border-b pb-2 border-gray-300">Order Summary</div>
+                            <div className="-space-y-3 border-b pb-3 border-gray-300">
+                                {/* Subtotal */}
+                                <div className="mt-4 text-md flex justify-between">
+                                    <p className="text-gray-500">Subtotal (3 items)</p>
+                                    <p className="font-semibold">$3,000.00</p>
+                                </div>
+                                {/* Shipping Cost */}
+                                <div className="mt-4 text-md flex justify-between">
+                                    <p className="text-gray-500">Shipping Cost</p>
+                                    <p className="font-semibold">$10.00</p>
+                                </div>
+                                {/* Discount Total */}
+                                <div className="mt-4 text-md flex justify-between">
+                                    <p className="text-gray-500">Coupon Discount</p>
+                                    <p className="font-semibold text-green-500">- $13.00</p>
+                                </div>
+                                {/* Tax */}
+                                <div className="mt-4 text-md flex justify-between">
+                                    <p className="text-gray-500">Estimated Tax</p>
+                                    <p className="font-semibold">$210.00</p>
+                                </div>
+                            </div>
+                            {/* Total */}
+                            <div className="mt-4 text-lg flex justify-between pb-7">
+                                <p className="font-medium">Total</p>
+                                <p className="font-bold text-2xl">$3,206.00</p>
+                            </div>
+                            {/* Checkout */}
+                            <button type="button" className="flex items-center justify-center text-center gap-3 w-full font-semibold cursor-pointer px-7 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-700">
+                                Checkout
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="m14 18l-1.4-1.45L16.15 13H4v-2h12.15L12.6 7.45L14 6l6 6z" />
+                                </svg>
+                            </button>
                         </div>
-                        {/* Checkout */}
-                        <button type="button" className="flex items-center justify-center text-center gap-3 w-full font-semibold cursor-pointer px-7 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-700">
-                            Checkout
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                                <path fill="currentColor" d="m14 18l-1.4-1.45L16.15 13H4v-2h12.15L12.6 7.45L14 6l6 6z"/>
-                            </svg>
-                        </button>
                     </div>
                 </div>
                 {/* Recommended Product */}

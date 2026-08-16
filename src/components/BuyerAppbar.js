@@ -1,14 +1,14 @@
 import SearchBar from "./SearchBar";
 import Link from "next/link";
 
-export default function AppBar() {
+export default function BuyerAppBar() {
     return (
         <nav className="fixed inset-x-0 top-0 left-0 z-50 h-24 bg-white border-b border-gray-200 shadow-md">
             <div className="flex h-full items-center justify-between gap-4 px-4 sm:px-6 lg:px-10">
                 {/* Logo */}
-                <div className="flex items-center shrink-0">
+                <Link href="/" className="flex items-center shrink-0">
                     <img src="logo.png" alt="Logo" className="h-auto max-w-52" />
-                </div>
+                </Link>
                 <div className="flex flex-1 justify-end items-center">
                     {/* Search Bar */}
                     <SearchBar />
