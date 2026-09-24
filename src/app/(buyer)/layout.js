@@ -1,9 +1,9 @@
-import BuyerAppBar from "@/components/BuyerAppbar";
+import AppBar from "@/components/Appbar";
 
 export default function BuyerLayout({ children }) {
     return (
         <>
-            <BuyerAppBar />
+            <AppBar />
             <main>
                 {children}
             </main>

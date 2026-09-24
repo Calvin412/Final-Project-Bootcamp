@@ -3,6 +3,7 @@
 import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle } from "@/components/ui/drawer"
 import { useState } from "react"
 import { formatCurrency } from "@/utils/currency";
+import { formatDate } from "@/utils/formatDate";
 
 export default function OrderPage() {
     const [selectedOrders, setSelectedOrders] = useState(null);
@@ -10,26 +11,80 @@ export default function OrderPage() {
 
     const orders = [
         {
-            id: 1,
-            image: "https://p3-ofp.static.pub//fes/cms/2024/10/30/owe4noysc71ah4qutx5htliga1bugf930316.png?width=1200&height=1200",
-            total_bought: 1,
-            product: "Legion 7i (16, Gen 7)",
-            type: "32GB RAM | 1+1 TB SSD",
-            category: "Laptop",
-            totalPrice: "1299.99",
-            date_ordered: "August 12, 2026",
-            status: "Delivered"
+            id: "ORD-2406202601",
+            buyerId: "user-5",
+            items: [
+                {
+                    productId: "product-1",
+                    productName: "ASUS ROG Strix G16",
+                    productImg: "https://p3-ofp.static.pub//fes/cms/2024/10/30/owe4noysc71ah4qutx5htliga1bugf930316.png?width=1200&height=1200",
+                    productType: "Black",
+                    quantity: 1,
+                    price: 24999000
+                },
+                {
+                    productId: "product-2",
+                    productName: "ASUS ROG Strix G16",
+                    productImg: "https://p3-ofp.static.pub//fes/cms/2024/10/30/owe4noysc71ah4qutx5htliga1bugf930316.png?width=1200&height=1200",
+                    productType: "Black",
+                    quantity: 1,
+                    price: 24999000
+                },
+            ],
+            subtotal: 24999000,
+            discount: 2499900,
+            shippingFee: 25000,
+            tax: 2749890,
+            totalPrice: 24774990,
+            promoCode: "FIRSTTIME",
+            status: "Delivered",
+            date_ordered: "2025-07-15T12:00:00"
         },
         {
-            id: 2,
-            image: "https://resource.logitechg.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_2.0/d_transparent.gif/content/dam/gaming/en/products/f310/f310-gallery-1.png",
-            total_bought: 1,
-            product: "Logitech Gamepad F310",
-            type: "Black",
-            category: "Controller",
-            totalPrice: "25.99",
-            date_ordered: "June 8, 2026",
-            status: "Shipped"
+            id: "ORD-2705202602",
+            buyerId: "user-5",
+            items: [
+                {
+                    productId: "product-1",
+                    productName: "Logitech Gamepad F310",
+                    productImg: "https://resource.logitechg.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_2.0/d_transparent.gif/content/dam/gaming/en/products/f310/f310-gallery-1.png",
+                    productType: "Black",
+                    quantity: 1,
+                    price: 24999000
+                },
+                {
+                    productId: "product-2",
+                    productName: "ASUS ROG Strix G16",
+                    productImg: "https://resource.logitechg.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_2.0/d_transparent.gif/content/dam/gaming/en/products/f310/f310-gallery-1.png",
+                    productType: "Black",
+                    quantity: 1,
+                    price: 24999000
+                },
+                {
+                    productId: "product-1",
+                    productName: "Logitech Gamepad F310",
+                    productImg: "https://resource.logitechg.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_2.0/d_transparent.gif/content/dam/gaming/en/products/f310/f310-gallery-1.png",
+                    productType: "Black",
+                    quantity: 1,
+                    price: 24999000
+                },
+                {
+                    productId: "product-2",
+                    productName: "ASUS ROG Strix G16",
+                    productImg: "https://resource.logitechg.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_2.0/d_transparent.gif/content/dam/gaming/en/products/f310/f310-gallery-1.png",
+                    productType: "Black",
+                    quantity: 1,
+                    price: 24999000
+                },
+            ],
+            subtotal: 24999000,
+            discount: 2499900,
+            shippingFee: 25000,
+            tax: 2749890,
+            totalPrice: 24774990,
+            promoCode: "FIRSTTIME",
+            status: "Shipped",
+            date_ordered: "2025-10-15T12:00:00"
         },
     ];
 
@@ -46,8 +101,8 @@ export default function OrderPage() {
                 <table className="w-full table-auto text-center">
                     <thead>
                         <tr className="bg-gray-50">
-                            <th className="w-[45%] p-3 text-xl font-medium">Product</th>
-                            <th className="w-[10%] p-3 text-xl font-medium">Category</th>
+                            <th className="w-[17%] p-3 text-xl font-medium">Order ID</th>
+                            <th className="w-[38%] p-3 text-xl font-medium">Items Ordered</th>
                             <th className="w-[20%] p-3 text-xl font-medium">Price</th>
                             <th className="w-[15%] p-3 text-xl font-medium">Date Ordered</th>
                             <th className="w-[10%] p-3 text-xl font-medium">Status</th>
@@ -56,26 +111,24 @@ export default function OrderPage() {
                     <tbody>
                         {orders.map((order) => (
                             <tr key={order.id} onClick={() => handleDrawer(order)} className="border-t border-gray-300 hover:bg-gray-100 cursor-pointer">
-                                {/* Product */}
+                                {/* Order ID */}
                                 <td>
-                                    <div className="flex items-center gap-5">
-                                        <img src={order.image} alt={order.product} className="h-20 w-20 object-contain p-2" />
-                                        <div className="flex flex-col text-start">
-                                            <p className="text-lg font-medium">{order.total_bought} {"\u00D7"} {order.product}</p>
-                                            <p className="text-sm text-gray-500">{order.type}</p>
-                                        </div>
+                                    <div className="flex items-center gap-3">
+                                        <img src={order.items[0].productImg} alt={order.items[0].productName} className="h-16 w-16 object-contain p-2" />
+                                        <p className="text-sm text-gray-500 font-medium">{order.id}</p>
                                     </div>
                                 </td>
-                                {/* Category */}
+                                {/* Items */}
                                 <td>
-                                    <div className="inline-flex px-4 py-1 bg-blue-600 text-white rounded-full">
-                                        {order.category}
-                                    </div>
+                                    <p className="text-base font-medium">
+                                        {order.items.slice(0, 2).map((item) => item.productName).join(", ")}
+                                        <span className="text-gray-500 text-sm">{order.items.length > 2 && `, and ${order.items.length - 2} more`}</span>
+                                    </p>
                                 </td>
                                 {/* totalPrice */}
                                 <td className="font-bold">{formatCurrency(order.totalPrice)}</td>
                                 {/* Date Ordered */}
-                                <td>{order.date_ordered}</td>
+                                <td>{formatDate(order.date_ordered)}</td>
                                 {/* Status */}
                                 <td>
                                     <div className={`inline-flex px-4 py-1 rounded-full font-medium ${order.status === "Delivered" ? "bg-green-200 text-green-800" : order.status === "Shipped" ? "bg-yellow-200 text-yellow-800" : order.status === "Processing" ? "bg-purple-200 text-purple-800" : order.status === "Cancelled" ? "bg-red-200 text-red-800" : "bg-gray-200 text-gray-800"}`}>
@@ -105,26 +158,32 @@ export default function OrderPage() {
                     </DrawerHeader>
 
                     {selectedOrders && (
-                        <div className="px-4">
+                        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 pb-5">
                             {/* Order Status */}
-                            <div className={`inline-flex px-4 py-1 rounded-full font-medium mt-5 ${selectedOrders.status === "Delivered" ? "bg-green-200 text-green-800" : selectedOrders.status === "Shipped" ? "bg-yellow-200 text-yellow-800" : selectedOrders.status === "Processing" ? "bg-purple-200 text-purple-800" : selectedOrders.status === "Cancelled" ? "bg-red-200 text-red-800" : "bg-gray-200 text-gray-800"}`}>
+                            <div className={`inline-flex px-4 py-1 rounded-full text-sm font-medium mt-5 ${selectedOrders.status === "Delivered" ? "bg-green-200 text-green-800" : selectedOrders.status === "Shipped" ? "bg-yellow-200 text-yellow-800" : selectedOrders.status === "Processing" ? "bg-purple-200 text-purple-800" : selectedOrders.status === "Cancelled" ? "bg-red-200 text-red-800" : "bg-gray-200 text-gray-800"}`}>
                                 {selectedOrders.status}
                             </div>
+                            {/* Order ID */}
+                            <p className="pt-3 text-lg font-semibold">Order ID: #{selectedOrders.id}</p>
                             {/* Date Ordered */}
-                            <p className="pt-2 text-base text-gray-500">Ordered on {selectedOrders.date_ordered}</p>
+                            <p className="text-sm text-gray-500">Ordered on {formatDate(selectedOrders.date_ordered)}</p>
                             {/* Product Detail */}
                             <div className="mt-5 border-t border-gray-300 pt-5 text-xl font-bold">
                                 Order Summary
                             </div>
-                            <div className="flex items-center gap-4 mt-5">
-                                <img src={selectedOrders.image} alt={selectedOrders.product} className="h-20 w-auto object-contain p-2" />
-                                <div className="flex w-full flex-col">
-                                    <div className="flex w-full items-center justify-between">
-                                        <p className="text-lg font-medium">{selectedOrders.total_bought} {"\u00D7"} {selectedOrders.product}</p>
-                                        <p className="text-lg font-bold">{formatCurrency(selectedOrders.totalPrice)}</p>
+                            <div className="flex flex-col gap-4 mt-5">
+                                {selectedOrders.items.map((item, index) => (
+                                    <div key={`${item.productId}-${index}`} className="flex items-center gap-4">
+                                        <img src={item.productImg} alt={item.productName} className="h-20 w-20 object-contain p-2" />
+                                        <div className="flex w-full flex-col">
+                                            <div className="flex w-full items-center justify-between">
+                                                <p className="text-lg font-medium">{item.quantity} {"\u00D7"} {item.productName}</p>
+                                                <p className="text-lg font-bold">{formatCurrency(item.price)}</p>
+                                            </div>
+                                            <p className="text-sm text-gray-500">{item.productType}</p>
+                                        </div>
                                     </div>
-                                    <p className="text-sm text-gray-500">{selectedOrders.type}</p>
-                                </div>
+                                ))}
                             </div>
                             {/* Payment Details */}
                             <div className="mt-5 border-t border-gray-300 pt-5 text-xl font-bold">
@@ -132,24 +191,24 @@ export default function OrderPage() {
                             </div>
                             <div className="flex flex-col w-full gap-2 mt-5">
                                 {/* Subtotal */}
-                                <div className="text-md flex justify-between">
+                                <div className="text-base flex justify-between">
                                     <p className="text-gray-500">Subtotal Product</p>
-                                    <p className="font-semibold">{formatCurrency(1277.99)}</p>
+                                    <p className="font-semibold">{formatCurrency(selectedOrders.subtotal)}</p>
                                 </div>
                                 {/* Shipping Cost */}
-                                <div className="text-md flex justify-between">
+                                <div className="text-base flex justify-between">
                                     <p className="text-gray-500">Shipping Cost</p>
-                                    <p className="font-semibold">{formatCurrency(10.00)}</p>
+                                    <p className="font-semibold">{formatCurrency(selectedOrders.shippingFee)}</p>
                                 </div>
                                 {/* Discount Total */}
-                                <div className="text-md flex justify-between">
+                                <div className="text-base flex justify-between">
                                     <p className="text-gray-500">Coupon Discount</p>
-                                    <p className="font-semibold text-green-500">- {formatCurrency(20.00)}</p>
+                                    <p className="font-semibold text-green-500">- {formatCurrency(selectedOrders.discount)}</p>
                                 </div>
                                 {/* Tax */}
-                                <div className="text-md flex justify-between">
+                                <div className="text-base flex justify-between">
                                     <p className="text-gray-500">Tax</p>
-                                    <p className="font-semibold">{formatCurrency(12.00)}</p>
+                                    <p className="font-semibold">{formatCurrency(selectedOrders.tax)}</p>
                                 </div>
                                 {/* Total */}
                                 <div className="mt-2 text-lg flex justify-between border-t border-gray-200 pt-2">

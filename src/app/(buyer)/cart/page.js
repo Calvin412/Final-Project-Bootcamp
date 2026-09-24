@@ -165,7 +165,7 @@ export default function CartPage() {
                         {/* Coupon */}
                         <div className="border border-gray-400 rounded-md px-5 py-3 mb-5">
                             <div className="font-semibold text-lg border-b border-gray-300 pb-2">Coupon</div>
-                            <p className="font-medium my-2 text-md">Have a coupon? Insert here</p>
+                            <p className="font-medium my-2 test-base">Have a coupon? Insert here</p>
                             <div className="relative flex items-center w-full border border-gray-400 rounded-md">
                                 <input type="text" placeholder="Input your coupon here" className="w-full text-sm pl-3 py-1 rounded-l-md uppercase placeholder:normal-case focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600" />
                                 <button type="button" className="px-4 py-1 bg-blue-500 rounded-r-sm text-white hover:bg-blue-700 cursor-pointer">Check</button>
@@ -176,22 +176,22 @@ export default function CartPage() {
                             <div className="font-semibold text-lg border-b pb-2 border-gray-300">Order Summary</div>
                             <div className="-space-y-3 border-b pb-3 border-gray-300">
                                 {/* Subtotal */}
-                                <div className="mt-4 text-md flex justify-between">
+                                <div className="mt-4 test-base flex justify-between">
                                     <p className="text-gray-500">Subtotal (3 items)</p>
                                     <p className="font-semibold">$3,000.00</p>
                                 </div>
                                 {/* Shipping Cost */}
-                                <div className="mt-4 text-md flex justify-between">
+                                <div className="mt-4 test-base flex justify-between">
                                     <p className="text-gray-500">Shipping Cost</p>
                                     <p className="font-semibold">$10.00</p>
                                 </div>
                                 {/* Discount Total */}
-                                <div className="mt-4 text-md flex justify-between">
+                                <div className="mt-4 test-base flex justify-between">
                                     <p className="text-gray-500">Coupon Discount</p>
                                     <p className="font-semibold text-green-500">- $13.00</p>
                                 </div>
                                 {/* Tax */}
-                                <div className="mt-4 text-md flex justify-between">
+                                <div className="mt-4 test-base flex justify-between">
                                     <p className="text-gray-500">Estimated Tax</p>
                                     <p className="font-semibold">$210.00</p>
                                 </div>
