@@ -102,6 +102,7 @@ function Carousel({
 
 function CarouselContent({
   className,
+  viewportClassName,
   ...props
 }) {
   const { carouselRef, orientation } = useCarousel()
@@ -109,7 +110,7 @@ function CarouselContent({
   return (
     <div
       ref={carouselRef}
-      className="overflow-hidden mr-3"
+      className={cn("overflow-hidden mr-3", viewportClassName)}
       data-slot="carousel-content">
       <div
         className={cn(

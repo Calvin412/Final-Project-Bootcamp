@@ -11,6 +11,7 @@ export const products = [
       "https://dlcdnwebimgs.asus.com/files/media/71a33ba1-1be2-44c1-9541-70b4c800abf8/v1/images/Strix_G16_KV_16x9_p-2000.webp",
       "https://dlcdnwebimgs.asus.com/gain/43B48C53-DA14-4E0D-9DAE-1268F8EC3A19/w1000/h732",
       "https://www.notebookcheck.net/fileadmin/Notebooks/Asus/ROG_Strix_G16_G615/rog_strix_g16_g615_case_13.JPG",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj5qGT6LjzKFQX3rR4hYdBekgR-xPIxsE9ip1DtPkbqA&s=10",
     ],
     description:
       "The ASUS ROG Strix G16 is built for gamers and creators who need serious horsepower without compromise. Powered by an Intel Core i7-13650HX processor paired with NVIDIA GeForce RTX 4060 graphics, it tears through AAA titles, competitive shooters, and creative workloads like video editing and 3D rendering with ease.\n\nThe 16-inch high refresh rate display keeps fast-paced action smooth and responsive, while 16GB of DDR5 memory and a spacious 1TB NVMe SSD ensure quick load times and effortless multitasking. An advanced cooling system keeps thermals in check even during extended gaming sessions.\n\nWith a durable chassis, RGB backlit keyboard, and reliable Wi-Fi connectivity, the ROG Strix G16 is equally at home in a LAN party, a dorm room, or a home office — a versatile machine for gaming, programming, and everyday productivity.",

@@ -25,7 +25,7 @@ export default function RecommendProduct() {
     return (
         <div>
             <h1 className="w-full text-2xl font-bold pb-3">Recommended Product</h1>
-            <Carousel opts={{ align: "start" }} className="mx-10">
+            <Carousel opts={{ align: "start", dragFree: true }} className="mx-10">
                 <CarouselContent>
                     {random.map((product) => (
                         <Link href={`products/${product.id}`} key={product.id} className="w-full max-w-80 shrink-0 overflow-hidden rounded-lg border border-gray-300 shadow-md mr-7">

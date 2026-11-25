@@ -7,10 +7,10 @@ import { getLowestProductPrice } from "@/utils/product";
 import Pagination from "./Pagination";
 import Link from "next/link";
 
-export default function ProductCard() {
+export default function ProductCard({ excludeProductId }) {
     const searchParams = useSearchParams();
 
-    const { products, totalPages, currentPage } = getFilterProduct({
+    const { products: fetchedProducts, totalPages, currentPage } = getFilterProduct({
         categories: searchParams.get("categories")?.split(",").filter(Boolean) || [],
         minPrice: searchParams.get("minPrice") || "",
         maxPrice: searchParams.get("maxPrice") || "",
@@ -19,6 +19,10 @@ export default function ProductCard() {
         page: Number(searchParams.get("page")) || 1,
         perPage: 20,
     });
+
+    const products = fetchedProducts.filter(
+        (product) => product.id !== excludeProductId
+    );
 
     return (
         <div>
